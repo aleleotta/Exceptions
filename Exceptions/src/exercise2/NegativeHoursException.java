@@ -4,7 +4,7 @@ public class NegativeHoursException extends Exception{
 	
 	@Override
 	public String getMessage() {
-		return "The following value of hours is not valid!";
+		return "\nThe following value of hours is not valid!";
 	}
 	
 }
