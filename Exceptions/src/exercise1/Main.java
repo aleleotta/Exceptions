@@ -4,6 +4,8 @@ import java.util.*;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println(Utils.readInt(sc));
+		System.out.println(Utils.readDouble(sc));
 		sc.close();
 	}
 }

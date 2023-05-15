@@ -1,6 +1,34 @@
 package exercise1;
+import java.util.*;
 
-public class Functions {
+public class Utils {
+	
+	public static double readDouble(Scanner sc) {
+		double num = 0;
+		try {
+			System.out.print("Introduce a double number: ");
+			num = sc.nextDouble();
+		} catch(InputMismatchException err) {
+			System.out.println("The following input is not valid.");
+		} finally {
+			sc.nextLine();
+		}
+		return num;
+	}
+	
+	public static int readInt(Scanner sc) {
+		int num = 0;
+		try {
+			System.out.print("Introduce a int number: ");
+			num = sc.nextInt();
+		} catch(InputMismatchException err) {
+			System.out.println("The following input is not valid.");
+		} finally {
+			sc.nextLine();
+		}
+		return num;
+	}
+	
 }
 
 /*
@@ -16,5 +44,5 @@ Crea estas funciones en una clase de nombre Utils.java y decláralas como estát
 En otra clase distinta, crea una función main desde la cual se lean datos de teclado de tipo double y de tipo int.
 Llama para ello a las funciones que te acabas de crear, y prueba a introducir valores erróneos para provocar
 que se lance la excepción y así comprobar que se captura correctamente
-y elprograma es capaz de devolver un valor aunque sea 0 para esos casos.
+y el programa es capaz de devolver un valor aunque sea 0 para esos casos.
 */
