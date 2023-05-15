@@ -3,23 +3,30 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-		long hour = -1;
+		long hour =1;
 		long minute = -1;
 		long second = -1;
 		Scanner sc = new Scanner(System.in);
-		while(hour < 0 || minute < 0 || second < 0) {
-			System.out.println("Introduce the following parameters.");
-			System.out.print("Hours: ");
-			hour = sc.nextLong();
-			System.out.print("Minutes: ");
-			minute = sc.nextLong();
-			System.out.print("Seconds: ");
-			second = sc.nextLong();
-			if(hour < 0 || minute < 0 || second < 0) {
-				System.out.println("\nMake sure all parameters are not negative!\n");
+		System.out.println("Introduce the following parameters.");
+		System.out.print("Hours: ");
+		hour = sc.nextLong();
+		System.out.print("Minutes: ");
+		minute = sc.nextLong();
+		System.out.print("Seconds: ");
+		second = sc.nextLong();
+		Hour time;
+		try {
+			time = new Hour(hour, minute, second);
+			} catch (NegativeSecondsException secondsErr) {
+				System.out.println(secondsErr.getMessage());
+				time = new Hour();
+			} catch (NegativeMinutesException minutesErr) {
+				System.out.println(minutesErr.getMessage());
+				time = new Hour();
+			} catch (NegativeHoursException hoursErr) {
+				System.out.println(hoursErr.getMessage());
+				time = new Hour();
 			}
-		}
-		Hour time = new Hour(hour, minute, second);
 		int option = 0;
 		while(option != 3) {
 			System.out.print("\nOptions\n1) Print time\n2) Add seconds to time\n3) Exit program\n\nIntroduce an option: ");
@@ -32,7 +39,7 @@ public class Main {
 				long addedSeconds = 0;
 				System.out.print("\nIntroduce the seconds you want to add to the time: ");
 				addedSeconds = sc.nextLong();
-				if(time.secondsIncrement(addedSeconds) == false) {
+				if(!(time.secondsIncrement(addedSeconds))) {
 					System.out.println("Make sure the seconds are positive and above 0 otherwise no seconds will be added.");
 				}
 				System.out.print(time.toString());

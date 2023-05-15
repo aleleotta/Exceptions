@@ -8,10 +8,22 @@ public class Hour {
 	
 	public Hour() {}
 	
-	public Hour(long hour, long minute, long second) {
-		this.hour = hour;
-		this.minute = minute;
-		this.second = second;
+	public Hour(long hour, long minute, long second) throws NegativeSecondsException, NegativeMinutesException, NegativeHoursException {
+		if(hour >= 0) {
+			this.hour = hour;
+		} else {
+			throw new NegativeHoursException();
+		}
+		if(minute >= 0) {
+			this.minute = minute;
+		} else {
+			throw new NegativeMinutesException();
+		}
+		if(second >= 0) {
+			this.second = second;
+		} else {
+			throw new NegativeSecondsException();
+		}
 	}
 	
 	public boolean secondsIncrement(long second) {
@@ -41,7 +53,7 @@ public class Hour {
 		return hour;
 	}
 
-	public void setHour(long hour) {
+	public void setHour(long hour) throws NegativeHoursException {
 		this.hour = hour;
 	}
 
@@ -49,7 +61,7 @@ public class Hour {
 		return minute;
 	}
 
-	public void setMinute(long minute) {
+	public void setMinute(long minute) throws NegativeMinutesException {
 		this.minute = minute;
 	}
 
@@ -57,7 +69,7 @@ public class Hour {
 		return second;
 	}
 
-	public void setSecond(long second) {
+	public void setSecond(long second) throws NegativeSecondsException {
 		this.second = second;
 	}
 	
