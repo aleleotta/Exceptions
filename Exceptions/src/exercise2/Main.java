@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-		long hour =1;
+		long hour = 1;
 		long minute = -1;
 		long second = -1;
 		Scanner sc = new Scanner(System.in);
